@@ -1,5 +1,6 @@
 <template>
   <div class="product-one">
+    <!-- PRODUCT ONE -->
     <v-sheet
         class="pa-4 red darken-3 white--text text-center ma-4"
         tile
