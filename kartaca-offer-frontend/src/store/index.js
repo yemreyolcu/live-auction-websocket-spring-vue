@@ -10,6 +10,8 @@ export default new Vuex.Store({
     productTwoState: false,
     productThreeState: false,
     storeToken: null,
+    wrongToken: false,
+    wrongTokenText: 'Session has expired. Please login again.',
   },
   getters: {
   },
