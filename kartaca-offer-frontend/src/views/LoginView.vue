@@ -40,6 +40,33 @@
         </v-container>
       </form>
     </v-card>
+    
+    <v-snackbar
+        v-model="this.$store.state.wrongToken"
+        timeout="2000"
+        color="red"
+        outlined
+        bottom
+        right
+        rounded
+    >
+      {{ this.$store.state.wrongTokenText }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+            color="red"
+            rounded
+            dark
+            x-small
+            v-bind="attrs"
+            @click="this.$store.state.wrongToken = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
+    
   </div>
 
 </template>
