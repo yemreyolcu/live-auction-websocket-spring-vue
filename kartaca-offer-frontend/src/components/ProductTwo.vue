@@ -160,6 +160,7 @@ export default {
       if (product === undefined) {
         this.$router.push({path: '/login'});
         this.$store.state.wrongToken = true;
+        this.$store.state.productTwoState = false;
       }
       let message = {
         "product": {
