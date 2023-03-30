@@ -157,6 +157,11 @@ export default {
     showProduct() {
       this.$store.state.productThreeState = true;
       let product = this.products[2];
+      if (product === undefined) {
+        this.$router.push({path: '/login'});
+        this.$store.state.wrongToken = true;
+        this.$store.state.productThreeState = false;
+      }
       let message = {
         "product": {
           "id": product.id,
