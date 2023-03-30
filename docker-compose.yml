@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  backend:
+    container_name: backend
+    build: ./kartaca-offer-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/kartaca
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_CACHE_HOST=redis
+      - SPRING_CACHE_PORT=6379
+    depends_on:
+      - postgres
+      - redis
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=kartaca
+      - PGDATA=/data/postgres/kartaca-offer-backend
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+  frontend:
+    container_name: frontend
+    build: ./kartaca-offer-frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
