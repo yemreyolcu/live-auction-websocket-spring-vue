@@ -184,6 +184,10 @@ export default {
       this.minusNumberControl();
       this.snackbar = true
       let product = this.products[2];
+      if (product === undefined) {
+        this.$router.push({path: '/login'});
+        this.$store.state.wrongToken = true;
+      }
       let message = {
         "product": {
           "id": product.id,
