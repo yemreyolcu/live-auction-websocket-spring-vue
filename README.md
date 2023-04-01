@@ -3,6 +3,14 @@
 
 This project consists of a series of tasks offered and requested by Kartaca company for internship. These are generally as follows. A web application that signals live is required for the auction process.
 
+## Ortam Değişkenleri
+
+I create a super user for login.
+
+`username: admin`
+
+`password: admin`
+
 
 
 
