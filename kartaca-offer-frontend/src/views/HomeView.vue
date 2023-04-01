@@ -2,6 +2,22 @@
   <div class="home-view">
     <h1 class="home-title">Our Products</h1>
     <p class="home-welcome text-right px-5 mr-16">Welcome {{ username }}</p>
+    <v-spacer/>
+    <v-row>
+      <v-col cols="8"></v-col>
+      <v-col cols="4" class="text-right">
+        <v-btn
+            color="red"
+            class="mr-16"
+            outlined
+            rounded
+            small
+            @click="logout"
+        >
+          Log Out
+        </v-btn>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col cols="4" class="mx-auto">
         <product-one
@@ -51,6 +67,25 @@ export default {
     messages: [],
     message: '',
   }),
+  methods: {
+    logout() {
+      const myUrl = 'http://localhost:8080' + '/api/auth/logout'
+      const config = {
+        headers: {
+          'Authorization': `Bearer ${this.token}`
+        }
+      }
+      axios.get(myUrl, config)
+          .then(response => {
+            if (response.status === 200) {
+              console.log("logout success")
+              localStorage.removeItem('token')
+              location.reload()
+              this.$router.push('/login')
+            }
+          })
+    },
+  },
   mounted() {
     axios.get('http://localhost:8080' + '/api/product/products', {
       headers: {
