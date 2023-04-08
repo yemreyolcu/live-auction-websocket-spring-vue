@@ -1,7 +1,7 @@
 
-# Kartaca Internship Case - Web Socket
+# Web Socket Live Auction
 
-This project consists of a series of tasks offered and requested by Kartaca company for internship. These are generally as follows. A web application that signals live is required for the auction process.
+A web application that signals live is required for the auction process.
 
 ## Ortam Değişkenleri
 
@@ -10,18 +10,6 @@ I create a super user for login.
 `username: admin`
 
 `password: admin`
-
-
-
-
-
-
-## Registration Key
-
-```
-81697120bf1479a377b0ea9d3373aba2b603dc3471bf277c61963a8ffd082e40
-```
-
   
 ## Run Project
 
